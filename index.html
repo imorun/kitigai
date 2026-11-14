@@ -7,7 +7,7 @@
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;overflow:hidden;background:#000}
+html,body{height:100%;margin:0;overflow:hidden;background:#000;touch-action:manipulation}
 body{font-family:"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;color:#fff;-webkit-user-select:none;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 #world{position:fixed;inset:0;background:linear-gradient(#5aa9e6 0%,#a7d8f5 48%,#d9f0d0 58%)}
 #sun{position:absolute;top:9%;right:12%;width:12vmin;height:12vmin;border-radius:50%;background:radial-gradient(#fffbe0 40%,#ffe98a 70%,transparent 72%);box-shadow:0 0 60px 20px #fff4b0aa}
@@ -37,7 +37,7 @@ h1{margin:0;font-size:clamp(1rem,3.6vw,1.4rem);text-shadow:0 2px 8px #0008;text-
 #msg{text-align:center;max-width:22em;line-height:1.6;text-shadow:0 2px 8px #000a;min-height:3.2em}
 body.seen #msg{color:#ffb0b0;font-weight:700}
 .bot{display:flex;flex-direction:column;align-items:center;gap:.6rem}
-button{font:inherit;font-weight:700;padding:.85em 2.2em;border-radius:999px;border:2px solid #fff;background:#1c1b1a;color:#fff;cursor:pointer;box-shadow:0 4px 18px #0006}
+button{font:inherit;font-weight:700;padding:.85em 2.2em;border-radius:999px;border:2px solid #fff;background:#1c1b1a;color:#fff;cursor:pointer;box-shadow:0 4px 18px #0006;touch-action:manipulation}
 button:focus-visible{outline:3px solid #ff3b3b;outline-offset:3px}
 body.over h1,body.over #msg,body.over #count{opacity:0}
 h1,#msg,#count{transition:opacity 1s}
@@ -54,6 +54,8 @@ h1,#msg,#count{transition:opacity 1s}
 #died p{margin:0;color:#7a4a4a;font-size:.9rem;opacity:0;transition:opacity 2s 1s}
 #died.txt p{opacity:1}
 @keyframes str{to{transform:scaleX(1.12)}}
+@media (max-width:600px){#ui{padding:calc(.9rem + env(safe-area-inset-top,0px)) .75rem calc(1rem + env(safe-area-inset-bottom,0px))}h1{font-size:clamp(1rem,5vw,1.3rem)}#msg{max-width:90vw;font-size:.95rem}button{min-width:7rem;min-height:48px}}
+@media (max-width:900px) and (max-height:500px){#ui{padding-top:calc(.5rem + env(safe-area-inset-top,0px));padding-bottom:calc(.5rem + env(safe-area-inset-bottom,0px))}.bot{gap:.35rem}}
 @media (prefers-reduced-motion:reduce){#ring,#world.hit{animation:none!important}#mill{transition-duration:.01s!important}}
 </style>
 </head>
